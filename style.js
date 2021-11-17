@@ -31,17 +31,7 @@ for (let i = 0; i < plus.length; i++) {
     )
 }
 
-function Total() {
-    var sum = 0
-    var res = 0
-    for (let i = 0; i < sous_total.length; i++) {
-        sum = sum + Number(sous_total[i].innerHTML)
-        res = res + Number(span[i].innerHTML)
 
-    }
-    total.innerHTML = sum
-    nbr_article.innerHTML = res
-}
 
 for (let i = 0; i < moin.length; i++) {
     moin[i].addEventListener('click',
@@ -55,7 +45,7 @@ for (let i = 0; i < moin.length; i++) {
                 console.log(x)
                 var y = sous_total[i].innerHTML;
                 console.log(y)
-                y = Number(x) * plus[i].nextElementSibling.innerHTML;
+                y = Number(x) * moin[i].nextElementSibling.innerHTML;
                 console.log(y)
                 sous_total[i].innerHTML = y;
 
@@ -66,67 +56,44 @@ for (let i = 0; i < moin.length; i++) {
     )
 }
 
-/*
-function Plus2() {
-    var plus = document.getElementsByClassName("plus2");
-    console.log(plus);
-    for (var c = 0; c < plus.length; c++) {
 
 
-        if (plus[c].previousElementSibling.innerHTML < 10)
-            plus[c].previousElementSibling.innerHTML++;
-        var x = Number(document.getElementById('puu').value);
-        console.log(x);
-        var y = Number(document.getElementById('soustt').value);
-        y = x * plus[c].previousElementSibling.innerHTML;
-        console.log(y);
-        document.getElementById('soustt').value = y;
+var myobj = document.querySelectorAll(".art");
+var supp = document.querySelectorAll('#suppbtn')
 
-        document.getElementById('total').value = Number(document.getElementById('soustt').value) + Number(document.getElementById('soust').value);
-        document.getElementById('nb_art').value = Number(document.getElementById('span').value) + Number(document.getElementById('span2').value);
 
-    }
-}
+for (let i = 0; i < supp.length; i++) {
 
-function Moin2() {
-    var moin = document.getElementsByClassName("moin2");
-    console.log(moin);
-    for (var c = 0; c < moin.length; c++) {
+    supp[i].addEventListener('click', function() {
+        myobj[i].remove()
+        Total()
+    })
 
-        if (moin[c].nextElementSibling.innerHTML > 1)
-            moin[c].nextElementSibling.innerHTML--;
-        var x = Number(document.getElementById('puu').value);
-        console.log(x);
-        var y = Number(document.getElementById('soustt').value);
-        y = x * moin[c].nextElementSibling.innerHTML;
-        console.log(y);
-        document.getElementById('soustt').value = y;
-        document.getElementById('total').value = Number(document.getElementById('soustt').value) + Number(document.getElementById('soust').value);
 
-        document.getElementById('nb_art').value = Number(document.getElementById('span').value) + Number(document.getElementById('span2').value);
-    }
 
 
 }
-*/
 
-
-function myFunction() {
-    var myobj = document.getElementById("achat");
-    myobj.remove();
-
-    document.getElementById('nb_art').value = Number(document.getElementById('span').value);
-    Total()
-
-}
 
 
 
 function Adore() {
-    if (document.getElementById("adore").style.color == "rgb(72, 61, 133)") {
-        document.getElementById("adore").style.color = "red";
+    if (document.querySelectorAll(".adore").style.color == "rgb(72, 61, 133)") {
+        document.querySelectorAll(".adore").style.color = "red";
     } else {
-        document.getElementById("adore").style.color = "rgb(72, 61, 133)";
+        document.querySelectorAll(".adore").style.color = "rgb(72, 61, 133)";
     }
 
+}
+
+function Total() {
+    var sum = 0
+    var res = 0
+    for (let i = 0; i < sous_total.length; i++) {
+        sum = sum + Number(sous_total[i].innerHTML)
+        res = res + Number(span[i].innerHTML)
+
+    }
+    total.innerHTML = sum
+    nbr_article.innerHTML = res
 }
